@@ -168,7 +168,7 @@ export const services: Service[] = [
     summary:
       "Research and analytics infrastructure for financial data workflows, API integrations, technical analytics, and market intelligence products.",
     intro:
-      "DataPulse Lab builds software infrastructure for financial technology use cases. The work is focused on client-owned analytics tooling, data systems, integrations, and research platforms.",
+      "Viquantra builds software infrastructure for financial technology use cases. The work is focused on client-owned analytics tooling, data systems, integrations, and research platforms.",
     image: images.dashboard,
     imageAlt: "Laptop screen showing business analytics and financial data charts",
     capabilities: [

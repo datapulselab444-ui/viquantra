@@ -11,7 +11,7 @@ export default function Home() {
       <PageHero
         eyebrow="Data analytics and software engineering"
         title="Intelligent analytics platforms for data-driven organizations."
-        description="DataPulse Lab is a software engineering company focused on building intelligent analytics platforms, realtime data systems, and custom financial technology solutions. We specialize in scalable web and mobile applications for market analysis, pattern recognition, business intelligence, and decision support."
+        description="Viquantra is a software engineering company focused on building intelligent analytics platforms, realtime data systems, and custom financial technology solutions. We specialize in scalable web and mobile applications for market analysis, pattern recognition, business intelligence, and decision support."
         image={images.dashboard}
         imageAlt="Analytics dashboard displayed on a laptop"
         primaryHref="/services"
@@ -50,7 +50,7 @@ export default function Home() {
                   Clear boundary
                 </p>
                 <p className="mt-3 leading-7 text-slate-700">
-                  This is a software-only engagement model. DataPulse Lab builds
+                  This is a software-only engagement model. Viquantra builds
                   client-owned analytics infrastructure, not recommendation services.
                 </p>
               </div>
@@ -130,8 +130,8 @@ export default function Home() {
               </h2>
               <p className="mt-5 text-base leading-8 text-slate-300">
                 Enterprise clients trust service companies when the site explains how
-                systems are understood, designed, built, and maintained. DataPulse
-                Lab now presents engineering depth first.
+                systems are understood, designed, built, and maintained. Viquantra
+                now presents engineering depth first.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
@@ -220,7 +220,7 @@ export default function Home() {
           <SectionIntro
             eyebrow="Industries and workflows"
             title="Focused on data-heavy products and operational decision systems."
-            description="DataPulse Lab serves teams that need custom systems rather than generic templates: analytics products, BI systems, research tools, and workflow applications."
+            description="Viquantra serves teams that need custom systems rather than generic templates: analytics products, BI systems, research tools, and workflow applications."
             align="center"
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -277,7 +277,7 @@ export default function Home() {
             href="/contact"
             className="inline-flex items-center justify-center rounded-sm bg-white px-6 py-3.5 text-sm font-bold text-blue-800 transition hover:bg-slate-950 hover:text-white focus-ring"
           >
-            Contact DataPulse Lab
+            Contact Viquantra
           </Link>
         </div>
       </section>

@@ -1,8 +1,8 @@
 import { PageHero } from "@/components/PageHero";
 
 export const metadata = {
-  title: "Terms | DataPulse Lab",
-  description: "Terms information for DataPulse Lab."
+  title: "Terms | Viquantra",
+  description: "Terms information for Viquantra."
 };
 
 export default function TermsPage() {

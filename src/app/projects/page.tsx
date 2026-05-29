@@ -6,9 +6,9 @@ import { SectionIntro } from "@/components/SectionIntro";
 import { images, projects } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Projects | DataPulse Lab",
+  title: "Projects | Viquantra",
   description:
-    "Explore DataPulse Lab project examples across analytics platforms, realtime systems, pattern recognition, API integrations, BI dashboards, and Android apps."
+    "Explore Viquantra project examples across analytics platforms, realtime systems, pattern recognition, API integrations, BI dashboards, and Android apps."
 };
 
 export default function ProjectsPage() {

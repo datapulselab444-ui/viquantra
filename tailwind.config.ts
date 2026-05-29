@@ -13,7 +13,7 @@ const config: Config = {
         panel: "#0a111d",
         line: "rgba(148, 163, 184, 0.18)",
         cyanfire: "#35d6ff",
-        pulseblue: "#4f8cff",
+        viqblue: "#4f8cff",
         mint: "#5ff0c7",
         amberline: "#f6c65b"
       },
@@ -37,7 +37,7 @@ const config: Config = {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" }
         },
-        pulseLine: {
+        viqLine: {
           "0%, 100%": { opacity: "0.45", transform: "scaleX(0.85)" },
           "50%": { opacity: "1", transform: "scaleX(1)" }
         }
@@ -45,7 +45,7 @@ const config: Config = {
       animation: {
         float: "float 7s ease-in-out infinite",
         scan: "scan 6s linear infinite",
-        pulseLine: "pulseLine 3.5s ease-in-out infinite"
+        viqLine: "viqLine 3.5s ease-in-out infinite"
       }
     }
   },

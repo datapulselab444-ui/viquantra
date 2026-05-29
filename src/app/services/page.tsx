@@ -6,9 +6,9 @@ import { SectionIntro } from "@/components/SectionIntro";
 import { images, services } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Services | DataPulse Lab",
+  title: "Services | Viquantra",
   description:
-    "Explore DataPulse Lab services across analytics platforms, realtime data systems, fintech engineering, business intelligence, web and mobile apps, and API automation."
+    "Explore Viquantra services across analytics platforms, realtime data systems, fintech engineering, business intelligence, web and mobile apps, and API automation."
 };
 
 export default function ServicesPage() {
@@ -17,7 +17,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Software engineering services for analytics and data products."
-        description="DataPulse Lab combines Django platform engineering, realtime data architecture, technical analytics engines, integrations, dashboards, and mobile workflows into custom client-owned systems."
+        description="Viquantra combines Django platform engineering, realtime data architecture, technical analytics engines, integrations, dashboards, and mobile workflows into custom client-owned systems."
         image={images.analytics}
         imageAlt="Analytics platform with dashboards and data visualizations"
       />

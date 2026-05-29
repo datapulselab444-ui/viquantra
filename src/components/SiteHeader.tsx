@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Activity, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { BrandMark } from "@/components/BrandMark";
 import { navigation } from "@/lib/site-data";
 
 export function SiteHeader() {
@@ -14,13 +15,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/92 backdrop-blur-xl">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 rounded-md focus-ring" onClick={() => setOpen(false)}>
-          <span className="grid h-11 w-11 place-items-center rounded-sm bg-slate-950 text-white">
-            <Activity className="h-5 w-5 text-cyan-300" aria-hidden="true" />
-          </span>
+          <BrandMark />
           <span>
-            <span className="block text-lg font-bold tracking-tight text-slate-950">DataPulse Lab</span>
+            <span className="block text-lg font-bold tracking-tight text-slate-950">Viquantra</span>
             <span className="block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-              Data Analytics Engineering
+              Logic & Data Engineering
             </span>
           </span>
         </Link>

@@ -5,9 +5,9 @@ import { SectionIntro } from "@/components/SectionIntro";
 import { deliveryModel, images } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Company | DataPulse Lab",
+  title: "Company | Viquantra",
   description:
-    "Learn about DataPulse Lab, a software engineering and data analytics company focused on Django platforms, realtime systems, and custom analytics products."
+    "Learn about Viquantra, a software engineering and data analytics company focused on Django platforms, realtime systems, and custom analytics products."
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Company"
         title="A software engineering company focused on intelligent data systems."
-        description="DataPulse Lab builds analytics platforms, realtime dashboards, API integrations, and workflow-specific software for clients who need dependable data products."
+        description="Viquantra builds analytics platforms, realtime dashboards, API integrations, and workflow-specific software for clients who need dependable data products."
         image={images.team}
         imageAlt="Software engineering team working together"
       />

@@ -4,11 +4,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "DataPulse Lab | Data Analytics and Software Engineering Company",
+  title: "Viquantra | Data Analytics and Software Engineering Company",
   description:
-    "DataPulse Lab builds intelligent analytics platforms, realtime data systems, Django-based software, API integrations, and custom financial technology solutions.",
+    "Viquantra builds intelligent analytics platforms, realtime data systems, Django-based software, API integrations, and custom financial technology solutions.",
   keywords: [
-    "DataPulse Lab",
+    "Viquantra",
     "data analytics company",
     "software engineering",
     "Django development",
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "pattern recognition"
   ],
   openGraph: {
-    title: "DataPulse Lab | Intelligent Analytics Platforms and Realtime Data Systems",
+    title: "Viquantra | Intelligent Analytics Platforms and Realtime Data Systems",
     description:
       "Software engineering for analytics platforms, realtime data systems, custom dashboards, API integrations, and data-driven decision support.",
     type: "website"
   },
-  metadataBase: new URL("https://datapulselabs.com")
+  metadataBase: new URL("https://viquantra.com")
 };
 
 export default function RootLayout({

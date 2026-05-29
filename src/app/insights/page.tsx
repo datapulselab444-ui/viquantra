@@ -27,9 +27,9 @@ const insights = [
 ];
 
 export const metadata = {
-  title: "Insights | DataPulse Lab",
+  title: "Insights | Viquantra",
   description:
-    "Engineering insights from DataPulse Lab on analytics platforms, realtime dashboards, Django systems, and API integrations."
+    "Engineering insights from Viquantra on analytics platforms, realtime dashboards, Django systems, and API integrations."
 };
 
 export default function InsightsPage() {

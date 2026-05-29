@@ -1,6 +1,6 @@
-# DataPulse Lab
+# Viquantra
 
-Enterprise-style service company website for DataPulse Lab, built with Next.js,
+Enterprise-style service company website for Viquantra, built with Next.js,
 React, Tailwind CSS, Framer Motion, and lucide-react.
 
 ## Pages

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Activity, Linkedin, Mail, MapPin } from "lucide-react";
+import { Linkedin, Mail, MapPin } from "lucide-react";
+import { BrandMark } from "@/components/BrandMark";
 import { navigation, services } from "@/lib/site-data";
 
 export function SiteFooter() {
@@ -8,23 +9,21 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-6 lg:grid-cols-[1.15fr_2fr] lg:px-8">
         <div>
           <Link href="/" className="flex items-center gap-3 rounded-md focus-ring">
-            <span className="grid h-11 w-11 place-items-center rounded-sm bg-white text-slate-950">
-              <Activity className="h-5 w-5 text-blue-700" aria-hidden="true" />
-            </span>
+            <BrandMark tone="light" />
             <span>
-              <span className="block text-lg font-bold">DataPulse Lab</span>
+              <span className="block text-lg font-bold">Viquantra</span>
               <span className="block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-                Software Engineering Company
+                Software Engineering Labs
               </span>
             </span>
           </Link>
           <p className="mt-6 max-w-md text-sm leading-7 text-slate-300">
-            DataPulse Lab builds intelligent analytics platforms, realtime data
+            Viquantra builds intelligent analytics platforms, realtime data
             systems, Django-based products, API integrations, and scalable web and
             mobile applications for data-driven organizations.
           </p>
           <p className="mt-5 max-w-md text-xs leading-6 text-slate-500">
-            DataPulse Lab is a software engineering and data analytics company.
+            Viquantra is a software engineering and data analytics company.
             Financial technology projects are delivered as client-owned software
             infrastructure and research systems, not advisory services.
           </p>
@@ -59,7 +58,7 @@ export function SiteFooter() {
           <FooterGroup title="Contact">
             <span className="flex items-start gap-2 text-sm text-slate-400">
               <Mail className="mt-0.5 h-4 w-4" aria-hidden="true" />
-              hello@datapulselabs.com
+              hello@viquantra.com
             </span>
             <span className="flex items-start gap-2 text-sm text-slate-400">
               <MapPin className="mt-0.5 h-4 w-4" aria-hidden="true" />
@@ -75,7 +74,7 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>&copy; 2026 DataPulse Lab. All rights reserved.</p>
+          <p>&copy; 2026 Viquantra. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="hover:text-white focus-ring rounded-sm">
               Privacy

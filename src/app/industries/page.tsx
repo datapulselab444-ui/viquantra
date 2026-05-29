@@ -6,9 +6,9 @@ import { SectionIntro } from "@/components/SectionIntro";
 import { images, industries } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Industries and Workflows | DataPulse Lab",
+  title: "Industries and Workflows | Viquantra",
   description:
-    "DataPulse Lab supports financial technology workflows, data-intensive businesses, digital operations teams, and product-led teams."
+    "Viquantra supports financial technology workflows, data-intensive businesses, digital operations teams, and product-led teams."
 };
 
 export default function IndustriesPage() {
@@ -26,7 +26,7 @@ export default function IndustriesPage() {
         <div className="mx-auto max-w-7xl">
           <SectionIntro
             eyebrow="Focus areas"
-            title="Where DataPulse Lab fits best."
+            title="Where Viquantra fits best."
             description="The positioning is intentionally narrow and credible: data analytics, software engineering, and workflow-specific platforms."
             align="center"
           />

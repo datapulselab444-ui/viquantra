@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!project) return {};
 
   return {
-    title: `${project.title} | DataPulse Lab Projects`,
+    title: `${project.title} | Viquantra Projects`,
     description: project.summary
   };
 }

@@ -5,9 +5,9 @@ import { Reveal } from "@/components/Reveal";
 import { images } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Contact | DataPulse Lab",
+  title: "Contact | Viquantra",
   description:
-    "Contact DataPulse Lab to discuss analytics platforms, realtime data systems, Django applications, API integrations, and custom software projects."
+    "Contact Viquantra to discuss analytics platforms, realtime data systems, Django applications, API integrations, and custom software projects."
 };
 
 export default function ContactPage() {
@@ -27,7 +27,7 @@ export default function ContactPage() {
             <div className="enterprise-card rounded-sm p-8">
               <h2 className="text-2xl font-bold text-slate-950">Contact details</h2>
               <div className="mt-8 grid gap-5">
-                <ContactItem icon={Mail} label="Email" value="hello@datapulselabs.com" />
+                <ContactItem icon={Mail} label="Email" value="hello@viquantra.com" />
                 <ContactItem icon={Phone} label="Phone" value="+91 00000 00000" />
                 <ContactItem icon={MapPin} label="Office" value="India, remote-first engineering studio" />
               </div>

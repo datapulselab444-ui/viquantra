@@ -15,7 +15,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!service) return {};
 
   return {
-    title: `${service.title} | DataPulse Lab`,
+    title: `${service.title} | Viquantra`,
     description: service.summary
   };
 }
