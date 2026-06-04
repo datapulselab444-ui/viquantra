@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Linkedin, Mail, MapPin } from "lucide-react";
 import { BrandMark } from "@/components/BrandMark";
-import { navigation, services } from "@/lib/site-data";
+import { ComplianceNotice } from "@/components/ComplianceNotice";
+import { brand, contactLinks, navigation, services } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
@@ -11,22 +12,22 @@ export function SiteFooter() {
           <Link href="/" className="flex items-center gap-3 rounded-md focus-ring">
             <BrandMark tone="light" />
             <span>
-              <span className="block text-lg font-bold">Viquantra</span>
-              <span className="block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-                Software Engineering Labs
+              <span className="block text-lg font-bold">{brand.name}</span>
+              <span className="block max-w-[240px] text-[10px] font-semibold uppercase leading-4 tracking-[0.14em] text-slate-400">
+                {brand.tagline}
               </span>
             </span>
           </Link>
           <p className="mt-6 max-w-md text-sm leading-7 text-slate-300">
-            Viquantra builds intelligent analytics platforms, realtime data
-            systems, Django-based products, API integrations, and scalable web and
-            mobile applications for data-driven organizations.
+            {brand.name} builds AI-driven realtime analytics platforms,
+            technical intelligence systems, workflow automation, API integrations,
+            and custom software for analytics-focused teams.
           </p>
           <p className="mt-5 max-w-md text-xs leading-6 text-slate-500">
-            Viquantra is a software engineering and data analytics company.
-            Financial technology projects are delivered as client-owned software
-            infrastructure and research systems, not advisory services.
+            We build the tools. Clients own their data, methods, operating
+            workflows, and regulated responsibilities.
           </p>
+          <ComplianceNotice tone="dark" compact className="mt-6 max-w-xl" />
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -37,6 +38,7 @@ export function SiteFooter() {
               </FooterLink>
             ))}
             <FooterLink href="/contact">Contact</FooterLink>
+            <FooterLink href="/compliance">Compliance</FooterLink>
           </FooterGroup>
 
           <FooterGroup title="Services">
@@ -48,7 +50,7 @@ export function SiteFooter() {
           </FooterGroup>
 
           <FooterGroup title="Technology">
-            {["Django", "Python", "PostgreSQL", "React", "Redis", "Android"].map((item) => (
+            {["Django", "Python", "PostgreSQL", "React", "AI Workflows", "WebSockets"].map((item) => (
               <span key={item} className="block text-sm text-slate-400">
                 {item}
               </span>
@@ -58,7 +60,7 @@ export function SiteFooter() {
           <FooterGroup title="Contact">
             <span className="flex items-start gap-2 text-sm text-slate-400">
               <Mail className="mt-0.5 h-4 w-4" aria-hidden="true" />
-              hello@viquantra.com
+              {contactLinks.email}
             </span>
             <span className="flex items-start gap-2 text-sm text-slate-400">
               <MapPin className="mt-0.5 h-4 w-4" aria-hidden="true" />
@@ -74,13 +76,16 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>&copy; 2026 Viquantra. All rights reserved.</p>
+          <p>&copy; 2026 {brand.name}. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="hover:text-white focus-ring rounded-sm">
               Privacy
             </Link>
             <Link href="/terms" className="hover:text-white focus-ring rounded-sm">
               Terms
+            </Link>
+            <Link href="/compliance" className="hover:text-white focus-ring rounded-sm">
+              Compliance
             </Link>
           </div>
         </div>

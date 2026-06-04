@@ -1,13 +1,17 @@
 import { CheckCircle2 } from "lucide-react";
+import { ComplianceNotice } from "@/components/ComplianceNotice";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
-import { deliveryModel, images } from "@/lib/site-data";
+import { brand, deliveryModel, images } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Company | Viquantra",
+  title: "Company | Viquantra Labs",
   description:
-    "Learn about Viquantra, a software engineering and data analytics company focused on Django platforms, realtime systems, and custom analytics products."
+    "Learn about Viquantra Labs, an AI-driven analytics engineering company focused on realtime systems, custom platforms, data infrastructure, and workflow automation.",
+  alternates: {
+    canonical: "/about"
+  }
 };
 
 export default function AboutPage() {
@@ -15,27 +19,27 @@ export default function AboutPage() {
     <main>
       <PageHero
         eyebrow="Company"
-        title="A software engineering company focused on intelligent data systems."
-        description="Viquantra builds analytics platforms, realtime dashboards, API integrations, and workflow-specific software for clients who need dependable data products."
+        title="An AI-driven analytics engineering studio for realtime systems."
+        description={`${brand.name}, founded by G. Muralee Sharma, builds custom analytics platforms, technical intelligence systems, realtime dashboards, API integrations, and workflow automation tools for clients who need dependable data products.`}
         image={images.team}
         imageAlt="Software engineering team working together"
       />
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionIntro
             eyebrow="Who we are"
-            title="Engineering-led, data-focused, and built for client trust."
-            description="The company positioning is intentionally service-based: clear capability pages, strong project documentation, and a practical delivery model for custom software."
+            title="Founder-led, engineering-driven, and built for client trust."
+            description={`${brand.name} is positioned as a custom software and analytics infrastructure company. The focus is practical engineering: clean data models, reliable dashboards, AI-assisted workflows, integrations, deployment, and documentation.`}
           />
           <div className="grid gap-5 sm:grid-cols-2">
             {[
-              "Pure data analytics and software engineering focus",
+              "AI-driven analytics engineering focus",
               "Django-based platform delivery",
               "Realtime dashboard and backend architecture expertise",
-              "Market analysis and business intelligence systems",
-              "API integrations and automation workflows",
-              "Custom web and mobile applications"
+              "Market data analytics and technical intelligence systems",
+              "API integrations and workflow automation",
+              "Client-owned custom software platforms"
             ].map((item, index) => (
               <Reveal key={item} delay={index * 0.03}>
                 <div className="rounded-sm border border-slate-200 bg-slate-50 p-5">
@@ -48,7 +52,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-slate-950 px-5 py-20 text-white sm:px-6 lg:px-8">
+      <section className="bg-slate-50 px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <SectionIntro
+            eyebrow="Operating boundary"
+            title="We build software systems, not regulated advice services."
+            description="That boundary protects the brand and gives serious clients confidence. Market-related work is scoped as analytics infrastructure, informational dashboards, technical structure detection, data visualization, and automation."
+          />
+          <ComplianceNotice />
+        </div>
+      </section>
+
+      <section className="bg-slate-950 px-5 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
             eyebrow="Delivery model"

@@ -1,46 +1,135 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { ComplianceNotice } from "@/components/ComplianceNotice";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { images } from "@/lib/site-data";
+import { brand, contactLinks, images } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Contact | Viquantra",
+  title: "Request Demo | Viquantra Labs",
   description:
-    "Contact Viquantra to discuss analytics platforms, realtime data systems, Django applications, API integrations, and custom software projects."
+    "Request a demo for AI-driven realtime analytics platforms, technical intelligence systems, workflow automation, API integrations, and custom software.",
+  alternates: {
+    canonical: "/contact"
+  }
 };
 
 export default function ContactPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Contact"
-        title="Start a conversation about your data platform."
-        description="Tell us about the workflow, data sources, users, integrations, dashboards, or mobile product you want to build."
+        eyebrow="Request Demo"
+        title="Plan an AI-driven analytics platform with clear boundaries."
+        description="Tell us about the workflow, data sources, users, integrations, dashboards, AI-assisted features, and compliance-sensitive areas you want to discuss."
         image={images.analytics}
         imageAlt="Analytics dashboard for a business software project"
       />
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
-            <div className="enterprise-card rounded-sm p-8">
-              <h2 className="text-2xl font-bold text-slate-950">Contact details</h2>
-              <div className="mt-8 grid gap-5">
-                <ContactItem icon={Mail} label="Email" value="hello@viquantra.com" />
-                <ContactItem icon={Phone} label="Phone" value="+91 00000 00000" />
-                <ContactItem icon={MapPin} label="Office" value="India, remote-first engineering studio" />
+            <div className="grid gap-6">
+              <div className="enterprise-card rounded-sm p-6 sm:p-8">
+                <h2 className="text-2xl font-bold text-slate-950">Contact details</h2>
+                <p className="mt-4 leading-7 text-slate-600">
+                  Share enough context for us to classify the project correctly:
+                  workflow, data sources, users, AI needs, integrations, and
+                  whether securities-market data is involved.
+                </p>
+                <div className="mt-8 grid gap-5">
+                  <ContactItem icon={Mail} label="Email" value={contactLinks.email} />
+                  <ContactItem icon={Phone} label="Call" value="Scheduled after inquiry" />
+                  <ContactItem icon={MapPin} label="Studio" value="India, remote-first engineering studio" />
+                </div>
               </div>
+              <ComplianceNotice />
             </div>
           </Reveal>
 
           <Reveal delay={0.05}>
-            <form className="enterprise-card rounded-sm p-8" aria-label="Project inquiry form">
+            <form
+              name="demo-request"
+              method="POST"
+              action="/thank-you"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              className="enterprise-card rounded-sm p-6 sm:p-8"
+              aria-label="Request demo form"
+            >
+              <input type="hidden" name="form-name" value="demo-request" />
+              <p className="hidden">
+                <label>
+                  Do not fill this out if you are human:
+                  <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                </label>
+              </p>
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-blue-700">
+                  {brand.tagline}
+                </p>
+                <h2 className="mt-3 text-2xl font-bold text-slate-950">Request Demo</h2>
+              </div>
               <div className="grid gap-5 sm:grid-cols-2">
-                <FormField label="Name" name="name" placeholder="Your name" />
-                <FormField label="Work email" name="email" placeholder="you@company.com" type="email" />
-                <FormField label="Company" name="company" placeholder="Company name" />
-                <FormField label="Project type" name="projectType" placeholder="Analytics, realtime, API, app" />
+                <FormField label="Name" name="name" placeholder="Your name" required maxLength={80} autoComplete="name" />
+                <FormField
+                  label="Work email"
+                  name="email"
+                  placeholder="you@company.com"
+                  type="email"
+                  required
+                  maxLength={120}
+                  autoComplete="email"
+                />
+                <FormField label="Company" name="company" placeholder="Company name" maxLength={120} autoComplete="organization" />
+                <SelectField
+                  label="Project type"
+                  name="projectType"
+                  required
+                  options={[
+                    "Realtime analytics platform",
+                    "Technical intelligence system",
+                    "Custom software development",
+                    "Workflow automation",
+                    "API integration"
+                  ]}
+                />
+                <SelectField
+                  label="Use case"
+                  name="useCase"
+                  required
+                  options={[
+                    "Internal team workflow",
+                    "Client-facing dashboard",
+                    "Community analytics tool",
+                    "Public subscription product"
+                  ]}
+                />
+                <SelectField
+                  label="Market data involved?"
+                  name="marketData"
+                  required
+                  options={["No", "Yes, informational dashboards only", "Yes, broker or exchange APIs"]}
+                />
+                <SelectField
+                  label="Regulated output risk?"
+                  name="regulatedOutput"
+                  required
+                  options={[
+                    "No",
+                    "Not sure, needs review",
+                    "Yes, requires compliance discussion"
+                  ]}
+                />
+                <SelectField
+                  label="Order execution involved?"
+                  name="orderExecution"
+                  required
+                  options={[
+                    "No",
+                    "Not sure, needs review",
+                    "Yes, requires broker and legal review"
+                  ]}
+                />
               </div>
               <div className="mt-5">
                 <label htmlFor="message" className="mb-2 block text-sm font-bold text-slate-800">
@@ -50,15 +139,31 @@ export default function ContactPage() {
                   id="message"
                   name="message"
                   rows={7}
-                  placeholder="Share the workflow, data sources, current tools, users, and the system you want to build."
+                  required
+                  maxLength={2500}
+                  placeholder="Share the workflow, data sources, current tools, users, AI-assisted features, integrations, and the system you want to build."
                   className="focus-ring w-full resize-none rounded-sm border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 placeholder:text-slate-400"
                 />
               </div>
+              <label className="mt-5 flex items-start gap-3 rounded-sm border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+                <input
+                  type="checkbox"
+                  name="complianceAcknowledgement"
+                  value="accepted"
+                  required
+                  className="mt-1 h-4 w-4 rounded-sm border-slate-300 text-blue-700"
+                />
+                <span>
+                  I understand that {brand.name} provides software engineering
+                  and analytics infrastructure only, not investment advice,
+                  recommendations, trading calls, or portfolio management.
+                </span>
+              </label>
               <button
                 type="submit"
                 className="mt-6 rounded-sm bg-blue-700 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-slate-950 focus-ring"
               >
-                Send inquiry
+                Request Demo
               </button>
             </form>
           </Reveal>
@@ -94,12 +199,18 @@ function FormField({
   label,
   name,
   placeholder,
-  type = "text"
+  type = "text",
+  required = false,
+  maxLength,
+  autoComplete
 }: {
   label: string;
   name: string;
   placeholder: string;
   type?: string;
+  required?: boolean;
+  maxLength?: number;
+  autoComplete?: string;
 }) {
   return (
     <div>
@@ -111,8 +222,43 @@ function FormField({
         name={name}
         type={type}
         placeholder={placeholder}
+        required={required}
+        maxLength={maxLength}
+        autoComplete={autoComplete}
         className="focus-ring w-full rounded-sm border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 placeholder:text-slate-400"
       />
+    </div>
+  );
+}
+
+function SelectField({
+  label,
+  name,
+  options,
+  required = false
+}: {
+  label: string;
+  name: string;
+  options: string[];
+  required?: boolean;
+}) {
+  return (
+    <div>
+      <label htmlFor={name} className="mb-2 block text-sm font-bold text-slate-800">
+        {label}
+      </label>
+      <select
+        id={name}
+        name={name}
+        required={required}
+        className="focus-ring w-full rounded-sm border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950"
+      >
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

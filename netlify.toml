@@ -1,0 +1,68 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https://images.unsplash.com https://*.unsplash.com https://*.imgix.net; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; form-action 'self'; upgrade-insecure-requests"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "0"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[redirects]]
+  from = "/services/analytics-platforms"
+  to = "/services/realtime-analytics-platforms"
+  status = 301
+
+[[redirects]]
+  from = "/services/realtime-data-systems"
+  to = "/services/realtime-analytics-platforms"
+  status = 301
+
+[[redirects]]
+  from = "/services/fintech-engineering"
+  to = "/services/technical-intelligence-systems"
+  status = 301
+
+[[redirects]]
+  from = "/services/business-intelligence"
+  to = "/services/custom-software-development"
+  status = 301
+
+[[redirects]]
+  from = "/services/web-mobile-applications"
+  to = "/services/custom-software-development"
+  status = 301
+
+[[redirects]]
+  from = "/services/api-integrations-automation"
+  to = "/services/api-integration-services"
+  status = 301
+
+[[redirects]]
+  from = "/projects/swing-alpha-nse-swing-trading-engine"
+  to = "/projects/market-analytics-workflow-platform"
+  status = 301

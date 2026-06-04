@@ -1,14 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
-import { images, projects } from "@/lib/site-data";
+import { brand, images, projects } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Projects | Viquantra",
+  title: "Projects | Viquantra Labs",
   description:
-    "Explore Viquantra project examples across analytics platforms, realtime systems, pattern recognition, API integrations, BI dashboards, and Android apps."
+    "Explore Viquantra Labs projects across realtime analytics, technical intelligence, API integrations, dashboards, workflow automation, and custom software.",
+  alternates: {
+    canonical: "/projects"
+  }
 };
 
 export default function ProjectsPage() {
@@ -16,18 +20,22 @@ export default function ProjectsPage() {
     <main>
       <PageHero
         eyebrow="Project work"
-        title="Detailed project pages for analytics and software systems."
-        description="The project section is designed to scale as you add deeper explanations, architecture notes, screenshots, implementation decisions, and business context."
+        title="Analytics systems translated into real software architecture."
+        description={`${brand.name} builds client-owned platforms with clear modules, data models, AI-assisted review layers, APIs, dashboards, and deployment-ready engineering.`}
         image={images.team}
         imageAlt="Software team collaborating on analytics products"
+        primaryHref="/contact"
+        primaryLabel="Request Demo"
+        secondaryHref="/services"
+        secondaryLabel="Explore Services"
       />
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
             eyebrow="Featured systems"
-            title="Representative builds with room for long-form case studies."
-            description="Each card opens a dedicated page with challenge, solution, modules, architecture, and stack details."
+            title="Representative builds for analytics-driven workflows."
+            description="Each card opens a dedicated page with challenge, solution, modules, architecture, stack details, and safe informational positioning."
             align="center"
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -40,7 +48,13 @@ export default function ProjectsPage() {
                     className="enterprise-card group grid h-full overflow-hidden rounded-sm transition hover:-translate-y-1 hover:border-blue-300 focus-ring md:grid-cols-[0.95fr_1.05fr]"
                   >
                     <div className="relative min-h-72">
-                      <img src={project.image} alt={project.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 48vw, 100vw"
+                        className="object-cover"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
                       <div className="absolute bottom-5 left-5 grid h-12 w-12 place-items-center rounded-sm bg-white text-blue-700">
                         <Icon className="h-6 w-6" aria-hidden="true" />

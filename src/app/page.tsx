@@ -1,32 +1,34 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Database } from "lucide-react";
+import { ComplianceNotice } from "@/components/ComplianceNotice";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
-import { deliveryModel, images, industries, projects, services, techStack } from "@/lib/site-data";
+import { brand, deliveryModel, images, industries, projects, services, techStack } from "@/lib/site-data";
 
 export default function Home() {
   return (
     <main>
       <PageHero
-        eyebrow="Data analytics and software engineering"
-        title="Intelligent analytics platforms for data-driven organizations."
-        description="Viquantra is a software engineering company focused on building intelligent analytics platforms, realtime data systems, and custom financial technology solutions. We specialize in scalable web and mobile applications for market analysis, pattern recognition, business intelligence, and decision support."
+        eyebrow={brand.descriptor}
+        title="Realtime Analytics Infrastructure for Modern Trading Workflows"
+        description="Custom-built AI-driven technical intelligence platforms, realtime dashboards, pattern recognition systems, workflow automation tools, and analytics infrastructure engineered for modern analytics-driven workflows."
         image={images.dashboard}
-        imageAlt="Analytics dashboard displayed on a laptop"
-        primaryHref="/services"
-        primaryLabel="Explore services"
-        secondaryHref="/projects"
-        secondaryLabel="View project work"
+        imageAlt="Realtime analytics dashboard displayed on a laptop"
+        primaryHref="/contact"
+        primaryLabel="Request Demo"
+        secondaryHref="/services"
+        secondaryLabel="Explore Services"
       />
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
-            "Django-based platforms",
+            "AI-assisted analytics",
             "Realtime dashboards",
-            "API integrations",
-            "High-performance architecture"
+            "API and webhook integrations",
+            "Compliance-aware boundaries"
           ].map((item) => (
             <div key={item} className="flex items-center gap-3">
               <CheckCircle2 className="h-5 w-5 shrink-0 text-blue-700" aria-hidden="true" />
@@ -36,22 +38,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-slate-50 px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal>
               <SectionIntro
                 eyebrow="Positioning"
-                title="A pure data analytics engineering company, not an advisory desk."
-                description="We build client-owned software systems for analysis, automation, integration, reporting, and workflow-specific decision support. Financial technology work is delivered as technical infrastructure and analytics tooling."
+                title="AI-driven analytics infrastructure with clear boundaries."
+                description={`${brand.name} builds client-owned software systems for technical intelligence, realtime analytics, automation, integration, reporting, and workflow visibility. Market-related work is delivered as informational software infrastructure.`}
               />
               <div className="mt-8 rounded-sm border-l-4 border-blue-700 bg-white p-6 shadow-sm">
                 <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
                   Clear boundary
                 </p>
                 <p className="mt-3 leading-7 text-slate-700">
-                  This is a software-only engagement model. Viquantra builds
-                  client-owned analytics infrastructure, not recommendation services.
+                  This is a software-only engagement model. {brand.name} builds
+                  analytics infrastructure, not regulated advice, research, or
+                  decision-making services.
                 </p>
               </div>
             </Reveal>
@@ -59,20 +62,20 @@ export default function Home() {
             <div className="grid gap-5 sm:grid-cols-2">
               {[
                 {
-                  title: "Analytics-first thinking",
-                  text: "Data models, dashboards, reporting flows, and user roles are designed around the questions each client needs to answer."
+                  title: "AI-ready architecture",
+                  text: "Data models, event logs, dashboard states, and workflow history are structured so AI-assisted search, summaries, and classifications can be added responsibly."
                 },
                 {
-                  title: "Architecture-led delivery",
-                  text: "Django platforms, APIs, queues, databases, and deployments are structured for maintainability and scale."
+                  title: "Realtime engineering",
+                  text: "Django platforms, APIs, queues, databases, WebSockets, and deployments are structured for maintainability, observability, and scale."
                 },
                 {
-                  title: "Workflow-specific software",
-                  text: "Every build is tailored to a client's data sources, users, operational rhythm, and decision process."
+                  title: "Workflow-specific systems",
+                  text: "Every build is tailored to the client's data sources, users, review process, internal logic, and operational rhythm."
                 },
                 {
-                  title: "Enterprise credibility",
-                  text: "Clear scope, documentation, security-aware implementation, performance reviews, and long-term extensibility."
+                  title: "Regulated-use clarity",
+                  text: "Public market-data projects are scoped with clear language, synthetic demo data, client-owned methods, and defined compliance boundaries."
                 }
               ].map((item, index) => (
                 <Reveal key={item.title} delay={index * 0.04}>
@@ -87,12 +90,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
             eyebrow="Services"
-            title="Engineering services for analytics platforms and data systems."
-            description="The site is now structured like a service-based technology company: broad capabilities, dedicated service pages, and deeper project detail pages for long descriptions."
+            title="Five focused services for AI-driven analytics products."
+            description="Each service is built around client-owned software: realtime analytics platforms, technical intelligence systems, custom applications, workflow automation, and secure API integrations."
             align="center"
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -118,27 +121,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-slate-950 px-5 py-20 text-white sm:px-6 lg:px-8">
+      <section className="bg-slate-950 px-5 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">
                 Engineering backbone
               </p>
-              <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-                Built on reliable data architecture, not decorative dashboards.
+              <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-4xl">
+                Built on reliable data architecture, not decorative dashboard screens.
               </h2>
               <p className="mt-5 text-base leading-8 text-slate-300">
-                Enterprise clients trust service companies when the site explains how
-                systems are understood, designed, built, and maintained. Viquantra
-                now presents engineering depth first.
+                Serious analytics products need ingestion, validation, event
+                processing, permissions, observability, AI-ready data flows, and
+                clear compliance boundaries before the interface can be trusted.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
                   ["Data layer", "schemas, ingestion, validation"],
-                  ["Application layer", "Django, APIs, permissions"],
+                  ["AI layer", "summaries, classification, retrieval"],
                   ["Realtime layer", "queues, sockets, workers"],
-                  ["Experience layer", "dashboards, portals, mobile"]
+                  ["Experience layer", "dashboards, workspaces, review"]
                 ].map(([title, text]) => (
                   <div key={title} className="rounded-sm border border-white/10 bg-white/5 p-5">
                     <p className="font-bold text-white">{title}</p>
@@ -169,13 +172,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionIntro
               eyebrow="Project depth"
-              title="Project pages ready for long explanations."
-              description="Featured work is now separated into individual pages with problem, solution, modules, architecture, and stack sections."
+              title="Representative builds for analytics-driven clients."
+              description="Project pages show how workflows can be translated into dashboards, data models, APIs, AI-assisted review layers, and operational software."
             />
             <Link
               href="/projects"
@@ -194,7 +197,13 @@ export default function Home() {
                     className="enterprise-card group block h-full overflow-hidden rounded-sm transition hover:-translate-y-1 hover:border-blue-300 focus-ring"
                   >
                     <div className="relative h-56">
-                      <img src={project.image} alt={project.imageAlt} className="h-full w-full object-cover" />
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, 100vw"
+                        className="object-cover"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
                       <div className="absolute bottom-5 left-5 grid h-12 w-12 place-items-center rounded-sm bg-white text-blue-700">
                         <Icon className="h-6 w-6" aria-hidden="true" />
@@ -215,12 +224,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-slate-50 px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
-            eyebrow="Industries and workflows"
-            title="Focused on data-heavy products and operational decision systems."
-            description="Viquantra serves teams that need custom systems rather than generic templates: analytics products, BI systems, research tools, and workflow applications."
+              eyebrow="Industries and workflows"
+            title="Anchored in market analytics, flexible beyond it."
+            description={`${brand.name} serves analytics-focused teams that need custom systems rather than generic templates: realtime dashboards, technical intelligence, data workflows, AI-assisted reporting, and automation platforms.`}
             align="center"
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -237,13 +246,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <SectionIntro
               eyebrow="Technology"
-              title="A practical stack for analytics products."
-              description="The technology stack is now aligned with the requested positioning: Django-based platforms, Python analytics, realtime dashboards, mobile applications, APIs, and cloud deployment."
+              title="A practical stack for AI-driven analytics products."
+              description="The stack supports Django platforms, Python analytics, realtime dashboards, API integrations, AI-ready data flows, mobile interfaces, and cloud deployment."
             />
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {techStack.map((tech, index) => {
@@ -262,23 +271,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-blue-700 px-5 py-16 text-white sm:px-6 lg:px-8">
+      <section className="bg-blue-700 px-5 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-100">
-              Build with confidence
+              Request Demo
             </p>
-            <h2 className="mt-3 text-3xl font-bold">Have a data platform or project to explain in detail?</h2>
+            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Have an analytics platform or workflow to build?</h2>
             <p className="mt-3 max-w-2xl text-blue-50">
-              The new structure gives every service and project its own page, so your future work can be documented with depth.
+              Share the workflow, data sources, integrations, users, and AI-assisted features you want to explore.
             </p>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center justify-center rounded-sm bg-white px-6 py-3.5 text-sm font-bold text-blue-800 transition hover:bg-slate-950 hover:text-white focus-ring"
           >
-            Contact Viquantra
+            Request Demo
           </Link>
+        </div>
+      </section>
+      <section className="bg-slate-950 px-5 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ComplianceNotice tone="dark" />
         </div>
       </section>
     </main>

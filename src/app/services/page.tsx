@@ -1,14 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ComplianceNotice } from "@/components/ComplianceNotice";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
-import { images, services } from "@/lib/site-data";
+import { brand, images, services } from "@/lib/site-data";
 
 export const metadata = {
-  title: "Services | Viquantra",
+  title: "Services | Viquantra Labs",
   description:
-    "Explore Viquantra services across analytics platforms, realtime data systems, fintech engineering, business intelligence, web and mobile apps, and API automation."
+    "Explore Viquantra Labs services across AI-driven realtime analytics platforms, technical intelligence systems, custom software, workflow automation, and API integrations.",
+  alternates: {
+    canonical: "/services"
+  }
 };
 
 export default function ServicesPage() {
@@ -16,18 +21,28 @@ export default function ServicesPage() {
     <main>
       <PageHero
         eyebrow="Services"
-        title="Software engineering services for analytics and data products."
-        description="Viquantra combines Django platform engineering, realtime data architecture, technical analytics engines, integrations, dashboards, and mobile workflows into custom client-owned systems."
+        title="AI-driven software engineering for analytics infrastructure."
+        description={`${brand.name} combines Django platform engineering, realtime data architecture, technical intelligence systems, integrations, dashboards, AI-assisted workflows, and compliance-aware delivery into custom client-owned software.`}
         image={images.analytics}
         imageAlt="Analytics platform with dashboards and data visualizations"
+        primaryHref="/contact"
+        primaryLabel="Request Demo"
+        secondaryHref="/projects"
+        secondaryLabel="View Projects"
       />
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-slate-950 px-5 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ComplianceNotice tone="dark" />
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
             eyebrow="Capabilities"
-            title="Designed for companies that need more than a website."
-            description="Each service page is structured to hold deeper explanations, deliverables, technologies, and future project references."
+            title="Designed for clients who need serious analytics systems."
+            description="Each capability is scoped as software infrastructure: dashboards, data pipelines, AI-assisted inspection, workflow automation, API integrations, and operational tooling."
             align="center"
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -40,7 +55,13 @@ export default function ServicesPage() {
                     className="enterprise-card group grid h-full overflow-hidden rounded-sm transition hover:-translate-y-1 hover:border-blue-300 focus-ring md:grid-cols-[0.92fr_1.08fr]"
                   >
                     <div className="relative min-h-64">
-                      <img src={service.image} alt={service.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
+                      <Image
+                        src={service.image}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 46vw, 100vw"
+                        className="object-cover"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 to-transparent" />
                       <div className="absolute bottom-5 left-5 grid h-12 w-12 place-items-center rounded-sm bg-white text-blue-700">
                         <Icon className="h-6 w-6" aria-hidden="true" />

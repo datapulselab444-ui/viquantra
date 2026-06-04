@@ -18,7 +18,7 @@ export function SectionIntro({
       <p className={`text-sm font-bold uppercase tracking-[0.22em] ${dark ? "text-cyan-300" : "text-blue-700"}`}>
         {eyebrow}
       </p>
-      <h2 className={`mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl ${dark ? "text-white" : "text-slate-950"}`}>
+      <h2 className={`mt-4 text-2xl font-bold leading-tight tracking-tight sm:text-4xl ${dark ? "text-white" : "text-slate-950"}`}>
         {title}
       </h2>
       <p className={`mt-5 text-base leading-8 ${dark ? "text-slate-300" : "text-slate-600"}`}>

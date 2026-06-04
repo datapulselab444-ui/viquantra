@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ComplianceNotice } from "@/components/ComplianceNotice";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
@@ -10,18 +12,23 @@ export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = projects.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
 
   return {
-    title: `${project.title} | Viquantra Projects`,
-    description: project.summary
+    title: `${project.title} | Viquantra Labs Projects`,
+    description: project.summary,
+    alternates: {
+      canonical: `/projects/${project.slug}`
+    }
   };
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = projects.find((item) => item.slug === params.slug);
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
   const Icon = project.icon;
 
@@ -34,12 +41,18 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         image={project.image}
         imageAlt={project.imageAlt}
         primaryHref="/contact"
-        primaryLabel="Discuss a similar project"
+        primaryLabel="Request Demo"
         secondaryHref="/projects"
-        secondaryLabel="All projects"
+        secondaryLabel="All Projects"
       />
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-slate-950 px-5 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ComplianceNotice tone="dark" />
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <div className="grid h-16 w-16 place-items-center rounded-sm bg-blue-700 text-white">
@@ -47,19 +60,19 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             </div>
             <SectionIntro
               eyebrow="Project narrative"
-              title="Built to hold detailed explanations."
-              description="This page format gives you a proper place for project background, requirements, architecture, screenshots, implementation choices, and future updates."
+              title="From workflow problem to engineered analytics system."
+              description="Each project explains the client-style challenge, software solution, modules, architecture, implementation choices, and compliance-aware boundaries."
             />
           </div>
           <div className="grid gap-5">
             <Reveal>
-              <article className="enterprise-card rounded-sm p-8">
+              <article className="enterprise-card rounded-sm p-6 sm:p-8">
                 <h2 className="text-2xl font-bold text-slate-950">Challenge</h2>
                 <p className="mt-5 leading-8 text-slate-600">{project.challenge}</p>
               </article>
             </Reveal>
             <Reveal delay={0.05}>
-              <article className="enterprise-card rounded-sm p-8">
+              <article className="enterprise-card rounded-sm p-6 sm:p-8">
                 <h2 className="text-2xl font-bold text-slate-950">Solution</h2>
                 <p className="mt-5 leading-8 text-slate-600">{project.solution}</p>
               </article>
@@ -68,13 +81,47 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
       </section>
 
+      {project.demoVisuals ? (
+        <section className="bg-slate-950 px-5 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <SectionIntro
+              eyebrow="Sanitized demo"
+              title="Public-safe product visual from the analytics workflow."
+              description="The screenshots below use masked values, cropped application chrome, and informational interface language suitable for public marketing."
+              tone="dark"
+              align="center"
+            />
+            <div className="mt-10 grid gap-6">
+              {project.demoVisuals.map((visual, index) => (
+                <Reveal key={visual.src} delay={index * 0.05}>
+                  <figure className="overflow-hidden rounded-sm border border-white/10 bg-white/[0.04] shadow-2xl">
+                    <Image
+                      src={visual.src}
+                      alt={visual.alt}
+                      width={visual.width}
+                      height={visual.height}
+                      sizes="(min-width: 1280px) 1180px, 100vw"
+                      className="h-auto w-full"
+                    />
+                    <figcaption className="border-t border-white/10 p-5 sm:p-6">
+                      <h3 className="text-xl font-bold text-white">{visual.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-300">{visual.caption}</p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {project.visuals ? (
-        <section className="bg-slate-950 px-5 py-20 text-white sm:px-6 lg:px-8">
+        <section className="bg-slate-950 px-5 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-7xl">
             <SectionIntro
               eyebrow="Visual system"
-              title="Product views for scanning, deployment, and lifecycle review."
-              description="These visuals show how the module presents technical readiness, strategy workflow, paper-trade state, and risk controls in a decision-focused interface."
+              title="Product views for data readiness, review, and scenario tracking."
+              description="These visuals show how the module presents technical readiness, workflow state, synthetic scenario data, and quality controls in an informational interface."
               tone="dark"
               align="center"
             />
@@ -89,10 +136,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </section>
       ) : null}
 
-      <section className="bg-slate-50 px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-slate-50 px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <Reveal>
-            <div className="rounded-sm border border-slate-200 bg-white p-8">
+            <div className="rounded-sm border border-slate-200 bg-white p-6 sm:p-8">
               <h2 className="text-2xl font-bold text-slate-950">Core modules</h2>
               <div className="mt-6 grid gap-3">
                 {project.modules.map((item) => (
@@ -105,7 +152,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <div className="rounded-sm border border-slate-200 bg-white p-8">
+            <div className="rounded-sm border border-slate-200 bg-white p-6 sm:p-8">
               <h2 className="text-2xl font-bold text-slate-950">Architecture highlights</h2>
               <div className="mt-6 grid gap-3">
                 {project.architecture.map((item) => (
@@ -120,15 +167,15 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-sm bg-slate-950 p-8 text-white lg:p-10">
+          <div className="rounded-sm bg-slate-950 p-6 text-white sm:p-8 lg:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
                   Stack
                 </p>
-                <h2 className="mt-3 text-3xl font-bold">Technology used</h2>
+                <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Technology used</h2>
               </div>
               <div className="flex flex-wrap gap-3">
                 {project.stack.map((item) => (
@@ -142,20 +189,20 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
       </section>
 
-      <section className="bg-blue-700 px-5 py-16 text-white sm:px-6 lg:px-8">
+      <section className="bg-blue-700 px-5 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="text-3xl font-bold">Want to document another project here?</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">Need a similar analytics platform?</h2>
             <p className="mt-3 max-w-2xl text-blue-50">
-              This route is ready for future case studies with more screenshots,
-              diagrams, metrics, and implementation notes.
+              Share your workflow, data sources, integrations, AI-assisted
+              review needs, and deployment requirements.
             </p>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-sm bg-white px-6 py-3.5 text-sm font-bold text-blue-800 transition hover:bg-slate-950 hover:text-white focus-ring"
           >
-            Start a project <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            Request Demo <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </section>
@@ -178,14 +225,14 @@ function ProjectVisual({
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
           </div>
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">
-            Swing Alpha
+            Demo UI
           </span>
         </div>
       </div>
       <div className="min-h-[310px] bg-slate-950 p-4">
         {visual.type === "dashboard" ? <DashboardMockup /> : null}
         {visual.type === "pipeline" ? <PipelineMockup /> : null}
-        {visual.type === "risk" ? <RiskMockup /> : null}
+        {visual.type === "quality" ? <QualityMockup /> : null}
       </div>
       <div className="border-t border-white/10 p-5">
         <h3 className="text-xl font-bold text-white">{visual.title}</h3>
@@ -214,9 +261,9 @@ function DashboardMockup() {
       </div>
       <div className="rounded-sm border border-white/10 bg-white/[0.04] p-4">
         <div className="mb-4 flex items-center justify-between">
-          <p className="text-sm font-bold text-white">Active positions</p>
+          <p className="text-sm font-bold text-white">Tracked scenarios</p>
           <span className="rounded-sm bg-emerald-400/10 px-2 py-1 text-xs font-bold text-emerald-300">
-            Fresh indicators
+            Fresh data
           </span>
         </div>
         <div className="flex h-28 items-end gap-2">
@@ -230,7 +277,7 @@ function DashboardMockup() {
         </div>
       </div>
       <div className="grid gap-2">
-        {["TP1 reached", "Trailing stop moved", "Scan log attached"].map((item) => (
+        {["Pattern reviewed", "Scenario updated", "Scan log attached"].map((item) => (
           <div key={item} className="flex items-center justify-between rounded-sm border border-white/10 bg-white/[0.04] px-3 py-2 text-sm">
             <span className="text-slate-300">{item}</span>
             <span className="h-2 w-2 rounded-full bg-cyan-300" />
@@ -242,7 +289,7 @@ function DashboardMockup() {
 }
 
 function PipelineMockup() {
-  const steps = ["Discovery sync", "Indicator build", "Intelligence scan", "Readiness gate", "Paper deploy"];
+  const steps = ["Data sync", "Feature build", "Pattern scan", "Readiness check", "Human review"];
 
   return (
     <div className="flex min-h-[278px] flex-col justify-center gap-4">
@@ -271,7 +318,7 @@ function PipelineMockup() {
   );
 }
 
-function RiskMockup() {
+function QualityMockup() {
   const checks = [
     ["Data freshness", "Pass", "text-emerald-300"],
     ["Indicator state", "Pass", "text-emerald-300"],
@@ -282,13 +329,13 @@ function RiskMockup() {
   return (
     <div className="grid min-h-[278px] gap-4">
       <div className="rounded-sm border border-white/10 bg-white/[0.04] p-4">
-        <p className="text-sm font-bold text-white">Risk monitor</p>
+        <p className="text-sm font-bold text-white">Quality monitor</p>
         <div className="mt-4 grid grid-cols-2 gap-3">
           {[
-            ["Risk/unit", "1.0R"],
-            ["TP1", "50%"],
-            ["TP2", "Open"],
-            ["Trail", "Armed"]
+            ["Freshness", "98%"],
+            ["Review", "Open"],
+            ["Rules", "Synced"],
+            ["Alerts", "Armed"]
           ].map(([label, value]) => (
             <div key={label} className="rounded-sm bg-slate-900 p-3">
               <p className="text-xs uppercase tracking-[0.16em] text-slate-500">{label}</p>
